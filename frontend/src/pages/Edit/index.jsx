@@ -29,7 +29,7 @@ const Edit = () => {
           quantity: data.quantity, // konsisten pakai quantity
           status: data.status || false,
         });
-        setPreviewImage(`${import.meta.env.VITE_API_URL}/${data.images.replace('\\', '/')}`);
+        setPreviewImage(`${import.meta.env.VITE_API_URL}/uploads/${data.images}`);
       })
       .catch((err) => {
         console.error("Gagal ambil data produk:", err);
