@@ -19,7 +19,7 @@ const Edit = () => {
   const [imageFile, setImageFile] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/products/${id}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
       .then((res) => {
         const data = res.data.data;
         setForm({
@@ -29,7 +29,7 @@ const Edit = () => {
           stock: data.quantity, // atau data.stock tergantung backend
           status: data.status || false,
         });
-        setPreviewImage(`http://localhost:5000/${data.images.replace('\\', '/')}`);
+        setPreviewImage(`${import.meta.env.VITE_API_URL}/${data.images.replace('\\', '/')}`);
       })
       .catch((err) => {
         console.error("Gagal ambil data produk:", err);
