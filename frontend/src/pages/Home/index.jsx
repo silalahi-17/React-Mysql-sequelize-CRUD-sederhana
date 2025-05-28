@@ -70,7 +70,7 @@ const Home = () => {
                 <td className="border px-4 py-2">{product.quantity}</td>
                 <td className="border px-4 py-2">
                   <img
-                    src={`${import.meta.env.VITE_API_URL}/uploads/${product.images.replace(/\\/g, '/')}`}
+                    src={`${import.meta.env.VITE_API_URL}/uploads/${product.images}`}
                     alt={product.name}
                     style={{ width: '100px', height: '100px', objectFit: 'contain', borderRadius: '5px' }}
                   />
