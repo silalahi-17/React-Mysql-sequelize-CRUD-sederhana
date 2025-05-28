@@ -60,7 +60,6 @@ const Edit = () => {
     formData.append('code', form.code);
     formData.append('price', form.price);
     formData.append('quantity', form.stock);
-    formData.append('status', form.status);
     if (imageFile) {
       formData.append('images', imageFile);
     }
