@@ -84,7 +84,7 @@ const updateProduct = async (req, res) => {
         if (code !== undefined) product.code = code;
         if (price !== undefined) product.price = parseInt(price);
         if (quantity !== undefined) product.quantity = parseInt(quantity); 
-        if (req.file !== undefined) product.images = images;
+          if (images !== null) product.images = images;
 
         await product.save();
         res.status(200).json({
@@ -95,7 +95,7 @@ const updateProduct = async (req, res) => {
 }
 const uploadProductImage = async (req, res) => {
     const { id } = req.params;
-    const imagesPath = req.file.filename;
+    const imagesPath = req.file.f;
     const product = await Product.findByPk(id);
         if(!product) {
             return res.status(404).json({
