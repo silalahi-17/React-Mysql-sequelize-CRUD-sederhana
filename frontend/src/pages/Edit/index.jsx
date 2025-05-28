@@ -26,7 +26,7 @@ const Edit = () => {
           name: data.name,
           code: data.code,
           price: data.price,
-          stock: data.quantity, // atau data.stock tergantung backend
+          quantity: data.quantity, // konsisten pakai quantity
           status: data.status || false,
         });
         setPreviewImage(`${import.meta.env.VITE_API_URL}/${data.images.replace('\\', '/')}`);
@@ -108,11 +108,11 @@ const Edit = () => {
             onChange={handleChange}
           />
           <Input
-            name="stock"
+            name="quantity"
             type="number"
             placeholder="Stock Produk..."
             label="Stock"
-            value={form.stock}
+            value={form.quantity}
             onChange={handleChange}
           />
 
@@ -121,9 +121,9 @@ const Edit = () => {
             <input type="file" name="images" onChange={handleImageChange} className="form-control" />
             {previewImage && (
               <img
-              src={previewImage}
-              alt="Preview"
-              style={{ marginTop: '10px', maxHeight: '150px' }}
+                src={previewImage}
+                alt="Preview"
+                style={{ marginTop: '10px', maxHeight: '150px' }}
               />
             )}
           </div>
