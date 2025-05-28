@@ -36,13 +36,13 @@ const Tambah = () => {
     data.append('code', form.code);
     data.append('price', form.price);
     data.append('quantity', form.quantity);
-    data.append('status', form.status);
     if (form.images) {
       data.append('images', form.images);
     }
 
     try {
-      await axios.post('${import.meta.env.VITE_API_URL}', data);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/products`, data);
+
       navigate('/');
     } catch (err) {
       console.error('Gagal tambah produk:', err);
