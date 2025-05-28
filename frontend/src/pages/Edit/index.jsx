@@ -66,7 +66,7 @@ const Edit = () => {
     }
 
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/api/products/${id}`, formData, {
+      await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
