@@ -8,7 +8,7 @@ const Detail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/products/${id}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
       .then(response => {
         setProduct(response.data.data);
       })
@@ -49,7 +49,7 @@ const Detail = () => {
             <td>Image</td>
             <td>:
               <img
-                src={`http://localhost:5000/${product.images.replace('\\', '/')}`}
+                src={`${import.meta.env.VITE_API_URL}/${product.images.replace('\\', '/')}`}
                 alt={product.name}
                 width="200"
                 className="ms-2"

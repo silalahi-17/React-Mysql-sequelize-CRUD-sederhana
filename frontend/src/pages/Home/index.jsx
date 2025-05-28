@@ -8,7 +8,7 @@ const Home = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get(`${import.meta.env.VITE_API_URL}/api/products`)
       .then(response => {
         console.log('Data produk dari backend:', response.data);
         setProducts(response.data.data);
@@ -23,7 +23,7 @@ const Home = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/${id}`);
       // Update state, filter produk yg sudah dihapus
       setProducts(products.filter(product => product.id !== id));
       alert('Produk berhasil dihapus');
