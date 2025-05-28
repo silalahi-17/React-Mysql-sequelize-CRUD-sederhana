@@ -59,13 +59,13 @@ const Edit = () => {
     formData.append('name', form.name);
     formData.append('code', form.code);
     formData.append('price', form.price);
-    formData.append('quantity', form.stock);
+    formData.append('quantity', form.quantity);
     if (imageFile) {
       formData.append('images', imageFile);
     }
 
     try {
-      await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`, formData, {
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/products/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
