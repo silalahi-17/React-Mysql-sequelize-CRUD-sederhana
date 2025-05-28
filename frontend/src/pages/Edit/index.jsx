@@ -127,13 +127,6 @@ const Edit = () => {
               style={{ marginTop: '10px', maxHeight: '150px' }}
               />
             )}
-            <Input
-              name="status"
-              type="checkbox"
-              label="Active"
-              checked={form.status}
-              onChange={handleChange}
-            />
           </div>
 
           <button type="submit" className="btn btn-primary">Simpan</button>
