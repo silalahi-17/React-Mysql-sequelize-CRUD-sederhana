@@ -13,7 +13,7 @@ const createProduct = async (req, res ) => {
   try {
 
     const { name, code, price, quantity } = req.body;
-    const images = req.file ? req.file.path : null;
+    const images = req.file ? req.file.filename : null;
     if(!name || !code || !price || !quantity) {
         return res.status(401).json({
             status: "error",
@@ -60,7 +60,7 @@ const getProductById = async (req, res) => {
 const updateProduct = async (req, res) => {
     const { id } = req.params;
     const {name, code, price, quantity } = req.body;
-    const images = req.file ? req.file.path : null;
+    const images = req.file ? req.file.filename : null;
 
     // if(!name || !code || !price || !quantity) {
     //     return res.status(401).json({
@@ -95,7 +95,7 @@ const updateProduct = async (req, res) => {
 }
 const uploadProductImage = async (req, res) => {
     const { id } = req.params;
-    const imagesPath = req.file.path;
+    const imagesPath = req.file.filename;
     const product = await Product.findByPk(id);
         if(!product) {
             return res.status(404).json({
