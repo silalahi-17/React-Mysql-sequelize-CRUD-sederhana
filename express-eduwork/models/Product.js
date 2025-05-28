@@ -22,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     },
+  }, {
+    tableName: 'products', // <== tambahkan ini agar cocok dengan nama tabel di DB
+    timestamps: true
   });
 
   return Product;
