@@ -36,13 +36,13 @@ const Edit = () => {
       });
   }, [id]);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm({
-      ...form,
-      [name]: type === 'checkbox' ? checked : value,
-    });
-  };
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+  setForm({
+    ...form,
+    [name]: type === 'checkbox' ? checked : (type === 'number' ? Number(value) : value),
+  });
+};
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
