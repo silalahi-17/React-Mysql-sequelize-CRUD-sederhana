@@ -23,7 +23,7 @@ const Home = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/products/${id}`);
       // Update state, filter produk yg sudah dihapus
       setProducts(products.filter(product => product.id !== id));
       alert('Produk berhasil dihapus');
